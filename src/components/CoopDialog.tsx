@@ -322,6 +322,12 @@ export default function CoopDialog() {
             {c.error}
           </p>
         )}
+        {!connected &&
+          ["connecting", "reconnecting", "error"].includes(c.status) && (
+            <button className="leave-coop" onClick={leaveSession}>
+              Cancel connection · keep editing locally
+            </button>
+          )}
         <div className="coop-footer">
           Live movement · shared colours and textures · undo your own edits
         </div>

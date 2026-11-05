@@ -508,6 +508,13 @@ export function createSession() {
     });
     return;
   }
+  useCoopStore.setState({
+    room: null,
+    token: null,
+    peers: [],
+    pending: 0,
+    error: "",
+  });
   active = true;
   fatal = false;
   confirmed = null;

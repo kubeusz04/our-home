@@ -118,3 +118,34 @@ test("internet co-op streams a drag before release and preserves partner edits o
   expect(errors).toEqual([]);
   await context.close();
 });
+
+test("an unavailable co-op server can be cancelled without blocking solo editing", async ({
+  page,
+  context,
+}) => {
+  await page.goto(process.env.COOP_TEST_SITE || "/");
+  await expect(page.getByText("Saved locally", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Co-op", exact: true }).click();
+  if (process.env.COOP_TEST_SERVER)
+    await page
+      .getByLabel("Live server address")
+      .fill(process.env.COOP_TEST_SERVER);
+  await context.setOffline(true);
+  await page
+    .getByRole("button", { name: "Create shared session", exact: true })
+    .click();
+  await page
+    .getByRole("button", {
+      name: "Cancel connection · keep editing locally",
+      exact: true,
+    })
+    .click();
+  await context.setOffline(false);
+  await page.getByRole("button", { name: "Close co-op dialog" }).click();
+  await page.getByRole("button", { name: "2D plan", exact: true }).click();
+  await page.getByTestId("plan-seed-2").click();
+  await page.getByLabel("Item name").fill("Solo editing still works");
+  await expect(page.getByLabel("Item name")).toHaveValue(
+    "Solo editing still works",
+  );
+});
