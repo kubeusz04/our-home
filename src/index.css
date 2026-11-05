@@ -1,0 +1,157 @@
+@import "tailwindcss";
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #30352a;
+  background: #f8f6f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 13px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+  border: 1px solid #dedbd1;
+  border-radius: 7px;
+  padding: 8px 11px;
+  line-height: 1.3;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+button:hover {
+  background: #eeeee4;
+  border-color: #b7bea6;
+}
+button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #78894f;
+  outline-offset: 2px;
+}
+input,
+select,
+textarea {
+  background: #fcfbf7;
+  color: #30352a;
+  border: 1px solid #dedbd1;
+  border-radius: 6px;
+  padding: 7px 9px;
+  min-width: 0;
+}
+input[type="checkbox"] {
+  accent-color: #71804c;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+input[type="color"] {
+  width: 35px;
+  height: 27px;
+  padding: 2px;
+}
+textarea {
+  resize: vertical;
+  min-height: 78px;
+  width: 100%;
+  line-height: 1.6;
+}
+small {
+  font-size: 11px;
+  color: #858779;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+h2 {
+  font-size: 15px;
+}
+h3 {
+  font-size: 12px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+svg {
+  flex-shrink: 0;
+}
+.primary {
+  background: #6b7b4b !important;
+  border-color: #6b7b4b !important;
+  color: white !important;
+}
+.primary:hover {
+  background: #5b6b3d !important;
+}
+.active {
+  background: #e7e9d5;
+  border-color: #d8dec0;
+  color: #53643d;
+}
+.danger {
+  color: #a16357;
+}
+.icon-button {
+  padding: 6px;
+  border-color: transparent;
+}
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.muted {
+  font-size: 12px;
+  color: #858779;
+  line-height: 1.7;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  font-weight: 600;
+  color: #999b8d;
+}
+.empty {
+  padding: 20px;
+  color: #929483;
+}
